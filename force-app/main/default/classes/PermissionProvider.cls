@@ -31,7 +31,7 @@ public class PermissionProvider {
     public static Boolean isFilterable(SObjectField field) {
         return (field != null)? field.getDescribe().isFilterable() : false;
     }
-
+    @TestVisible
     private static SObjectField getObjectField(SObject obj, String fieldName) {
         if (obj == null || String.isEmpty(fieldName)) {
             return null;
