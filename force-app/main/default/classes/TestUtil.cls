@@ -33,12 +33,16 @@ public class TestUtil {
         return usr;
     }
 
-    public static User getTestUser() {
+    public static User fetchTestUser() {
         User usr = [
                 SELECT Id
                 FROM User
                 WHERE Username = :TEST_USER_USERNAME
         ];
         return usr;
+    }
+
+    public static Contact getTestContact() {
+        return new Contact(LastName=TEST_USER_LAST_NAME);
     }
 }
