@@ -5,10 +5,10 @@
 public with sharing class PermissionController {
 
     @AuraEnabled
-    public static Boolean hasAccountPermissions(String operation, String fieldName) {
+    public static Boolean hasContactPermissions(String permission, String fieldName) {
         Boolean result = false;
         try {
-            result = PermissionService.hasAccountPermissions(operation, fieldName);
+            result = PermissionService.hasContactPermissions(permission, fieldName);
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }

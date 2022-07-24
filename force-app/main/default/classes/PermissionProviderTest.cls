@@ -43,7 +43,7 @@ private class PermissionProviderTest {
     /*
     The test user's profile doesn't have Edit access for the LastModifiedById, Phone fields
      */
-    @IsTest static void testIsCreateAccessiblePhoneNoAccess() {
+    @IsTest static void testIsCreateAccessibleNoAccess() {
         System.runAs(TestUtil.fetchTestUser()) {
             System.assert(!PermissionProvider.isCreateAccessible(Contact.LastModifiedById));
             System.assert(!PermissionProvider.isCreateAccessible(Contact.Phone));
