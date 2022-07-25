@@ -3,6 +3,7 @@
  */
 
 public with sharing class PermissionService {
+    @AuraEnabled
     public static Boolean hasContactPermissions(String permission, String fieldName) {
         Contact cont = new Contact(LastName='LastName');
         if (permission == Constants.PERMISSION_CREATE) {

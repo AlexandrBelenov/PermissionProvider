@@ -1,0 +1,19 @@
+<!--
+ - Created by alexanderbelenov on 23.07.2022.
+ -->
+
+<aura:component description="permissionProvider"
+                implements="flexipage:availableForAllPageTypes"
+                controller="PermissionController"
+>
+    <div class="slds-p-around_medium">
+        <lightning:recordEditForm objectApiName="PermissionContact"
+                                  onsubmit="{!c.checkContactPermissions}">
+            <lightning:messages />
+            <lightning:inputField fieldName="fieldName" label="Field Name" />
+            <lightning:inputField fieldName="permission" label="Permission"/>
+            <lightning:inputField fieldName="hasContactPermission" label="Has Permission" readonly="true"/>
+            <lightning:button type="submit" name="Submit" label="submit" class="slds-m-top_medium"/>
+        </lightning:recordEditForm>
+    </div>
+</aura:component>
