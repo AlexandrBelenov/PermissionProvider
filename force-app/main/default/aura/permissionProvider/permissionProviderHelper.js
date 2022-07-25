@@ -4,7 +4,7 @@
 
 ({
     hasContactPermission: function (component, permission, fieldName) {
-        const action = component.get('c.hasContactPermissions');
+        let action = component.get('c.hasContactPermissions');
         action.setParams({
             'permission': permission,
             'fieldName': fieldName,
@@ -13,7 +13,7 @@
             const state = response.getState();
             if (state === "SUCCESS") {
                 const data = response.getReturnValue();
-                component.set('v.hasContactPermission', data);
+                component.set('v.permissionResult', data);
             } else if (state === "ERROR") {
                 const errors = response.getError();
                 if (errors) {

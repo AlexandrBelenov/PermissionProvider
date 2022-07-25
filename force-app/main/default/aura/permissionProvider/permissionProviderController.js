@@ -4,8 +4,9 @@
 
 ({
     checkContactPermissions: function (component, event, helper) {
-        const permission = component.get("v.permission");
-        const fieldName = component.get("v.fieldName");
+        let permission = component.find("permission").get("v.value");
+        let fieldName = component.find("fieldName").get("v.value");
+
         helper.hasContactPermission(component, permission, fieldName);
     }
 });
