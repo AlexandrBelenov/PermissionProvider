@@ -1,0 +1,24 @@
+<!--
+ - Created by alexanderbelenov on 23.07.2022.
+ -->
+
+<aura:component description="PermissionProvider"
+                implements="flexipage:availableForAllPageTypes"
+                controller="PermissionController"
+                access="global"
+>
+    <aura:attribute name="permissionResult" type="Boolean"/>
+    <aura:attribute name="permissionsOptions" type="List" default="[
+        {'label': 'Create', 'value': 'create'},
+        {'label': 'Edit', 'value': 'edit'},
+        {'label': 'Read', 'value': 'read'},
+        {'label': 'Filterable', 'value': 'filterable'},
+    ]"/>
+    <div class="slds-box slds-theme_default">
+        <lightning:input name="fieldName" aura:id="fieldName" label="Field Name" />
+        <lightning:input name="permission" aura:id="permission" label="Permission" options="{! v.permissionsOptions}" type="text"/>
+        <lightning:input name="hasContactPermission" label="Has Permission" disabled="true" value="{! v.permissionResult }"/>
+        <div>{! v.permissionResult }</div>
+        <lightning:button variant="brand" label="Has Permission" title="Has contact permission" onclick="{! c.checkContactPermissions }"/>
+    </div>
+</aura:component>
